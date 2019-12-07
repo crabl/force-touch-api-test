@@ -1,0 +1,19 @@
+{
+  "name": "force-touch-measure",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "draggable": "^4.2.0",
+    "pressure": "^2.1.2"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.3"
+  }
+}
