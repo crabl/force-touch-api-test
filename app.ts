@@ -39,7 +39,15 @@ const RIGHT = 'R';
 // configuration
 const config = {
   showCurrentForce: false
-}
+};
+
+const showForceCheckbox: HTMLInputElement = document.querySelector('.config-show-force');
+showForceCheckbox.checked = config.showCurrentForce;
+showForceCheckbox.onchange = function() {
+  config.showCurrentForce = !config.showCurrentForce;
+  showForceCheckbox.checked = config.showCurrentForce;
+};
+
 
 // coordinates of drop zone rectangles
 const dropZoneLeftRect = document.querySelector('.drop-zone-left').getBoundingClientRect();
@@ -65,6 +73,13 @@ function plotForceValuesOnCanvas(canvas: HTMLCanvasElement, forces: number[]) {
   }
 
   context.stroke();
+}
+
+function showForceValueOnCanvas(canvas: HTMLCanvasElement, force: number) {
+  const context = canvas.getContext('2d');
+  context.clearRect(0,0,100,100);
+  context.font = '30px Arial'
+  context.fillText(force.toString(), 30, 50);
 }
 
 // make all elements with the 'draggable' class draggable
@@ -112,10 +127,11 @@ Pressure.set('.draggable', {
 
     // show the current force on the div
     if (config.showCurrentForce) {
-      this.innerHTML = currentForce;
+      const canvas: HTMLCanvasElement = this.querySelector('canvas');
+      showForceValueOnCanvas(canvas, currentForce);
     }
   }
-}, {only: 'mouse'}); // only run on force trackpads
+});
 
 function getData() {
   console.log(data);

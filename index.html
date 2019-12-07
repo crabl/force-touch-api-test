@@ -49,6 +49,19 @@
         width: 20vw;
         height: 100vh;
       }
+
+      .config {
+        position: absolute;
+        z-index: 10;
+        bottom: 0;
+        right: 0;
+        padding: 10px;
+        background: #aaa;
+      }
+
+      .config label {
+        margin-right: 10px; 
+      }
     </style>
   </head>
 
@@ -64,6 +77,12 @@
 
     <div class="drop-zone-left"></div>
     <div class="drop-zone-right"></div>
+
+    <div class="config">
+      <label>
+        <input type="checkbox" class="config-show-force" /> Show force while dragging
+      </label>
+    </div>
 
     <script src="./app.ts">
     </script>
