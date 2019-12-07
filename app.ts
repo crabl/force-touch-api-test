@@ -108,6 +108,13 @@ for (let element of draggables) {
   });
 }
 
+// detect if ipad
+function iPadOSNavigator() {
+  return navigator.maxTouchPoints &&
+    navigator.maxTouchPoints > 2 &&
+    /MacIntel/.test(navigator.platform);
+}
+
 // the sauce
 Pressure.set('.draggable', {
   start: function () {
@@ -132,7 +139,7 @@ Pressure.set('.draggable', {
     }
   }
 }, {
-  only: 'mouse' // only run on devices with 3d touch or force touch trackpads
+  only: iPadOSNavigator() ? 'touch' : 'mouse' // only run on devices with 3d touch or force touch trackpads
 });
 
 function getData() {
