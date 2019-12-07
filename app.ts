@@ -132,7 +132,7 @@ Pressure.set('.draggable', {
     }
   }
 }, {
-  polyfill: false // only run on devices with 3d touch or force touch trackpads
+  only: 'mouse' // only run on devices with 3d touch or force touch trackpads
 });
 
 function getData() {
