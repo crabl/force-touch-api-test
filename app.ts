@@ -115,9 +115,11 @@ function iPadOSNavigator() {
     /MacIntel/.test(navigator.platform);
 }
 
+
 // the sauce
 Pressure.set('.draggable', {
   start: function () {
+    console.log('yeet')
     const id = this.dataset.id;
     data[id].forces = [];
   },
@@ -139,7 +141,7 @@ Pressure.set('.draggable', {
     }
   }
 }, {
-  only: iPadOSNavigator() ? 'touch' : 'mouse' // only run on devices with 3d touch or force touch trackpads
+  only: iPadOSNavigator() ? 'pointer' : 'mouse'
 });
 
 function getData() {
