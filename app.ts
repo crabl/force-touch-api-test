@@ -149,4 +149,10 @@ function getData() {
   return data;
 }
 
+
+// disable scrolling
+document.body.addEventListener('touchmove', function (e){
+  e.preventDefault();
+}, { passive: false });
+
 window['getData'] = getData;
