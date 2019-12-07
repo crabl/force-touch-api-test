@@ -131,6 +131,8 @@ Pressure.set('.draggable', {
       showForceValueOnCanvas(canvas, currentForce);
     }
   }
+}, {
+  polyfill: false // only run on devices with 3d touch or force touch trackpads
 });
 
 function getData() {
